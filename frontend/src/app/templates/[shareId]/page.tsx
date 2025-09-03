@@ -407,9 +407,11 @@ export default function TemplateSharePage() {
             <div className="flex h-14 items-center">
               <div className="flex items-center">
                 <Link href="/" className="flex items-center">
-                  <img 
-                    src={resolvedTheme === 'dark' ? '/kortix-logo-white.svg' : '/kortix-logo.svg'} 
-                    alt="Kortix" 
+                  <Image 
+                    src="/s45_logo.jpeg" 
+                    alt="S45" 
+                    width={24}
+                    height={24}
                     className="h-6 opacity-70"
                   />
                 </Link>

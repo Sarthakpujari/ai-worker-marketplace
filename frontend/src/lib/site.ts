@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: 'Kortix Suna',
-  url: 'https://suna.so/',
-  description: 'Kortix AI',
+  name: 'S45',
+  url: 'https://s45.ai/',
+  description: 'S45 AI Worker Platform',
   links: {
-    twitter: 'https://x.com/kortixai',
-    github: 'https://github.com/kortix-ai/',
-    linkedin: 'https://www.linkedin.com/company/kortix/',
+    twitter: 'https://x.com/s45ai',
+    github: 'https://github.com/s45-ai/',
+    linkedin: 'https://www.linkedin.com/company/s45/',
   },
 };
 

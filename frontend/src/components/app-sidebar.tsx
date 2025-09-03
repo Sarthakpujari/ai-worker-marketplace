@@ -103,11 +103,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     setMounted(true);
   }, []);
 
-  const logoSrc = !mounted
-    ? '/kortix-logo.svg'
-    : resolvedTheme === 'dark'
-      ? '/kortix-logo-white.svg'
-      : '/kortix-logo.svg';
+  const logoSrc = '/s45_logo.jpeg';
   
 
   const isActive = (url: string) => {
@@ -119,10 +115,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader className="bg-transparent p-6 px-2">
         <Image
           src={logoSrc}
-          alt="Kortix Logo"
+          alt="S45 Logo"
           width={80}
-          height={14}
-          className="md:w-[100px] md:h-[18px]"
+          height={40}
+          className="md:w-[100px] md:h-[50px]"
           priority
         /> 
       </SidebarHeader>

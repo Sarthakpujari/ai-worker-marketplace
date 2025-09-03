@@ -103,7 +103,7 @@ export const useModelStore = create<ModelStore>()(
       },
     }),
     {
-      name: 'suna-model-selection-v2',
+      name: 's45-model-selection-v2',
       partialize: (state) => ({
         selectedModel: state.selectedModel,
         customModels: state.customModels,

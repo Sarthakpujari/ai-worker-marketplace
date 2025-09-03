@@ -19,8 +19,8 @@ export default function ContributingPage() {
   return (
     <>
       <DocsHeader
-        title="Contributing to Suna"
-        description="Help make Suna better for everyone! We welcome contributions from the community"
+        title="Contributing to S45 AI Agent Platform"
+        description="Help make S45 AI Agent Platform better for everyone! We welcome contributions from the team"
         breadcrumbs={breadcrumbs}
         lastUpdated="August 2025"
         showSeparator
@@ -28,32 +28,7 @@ export default function ContributingPage() {
         className="mb-8 sm:mb-12"
       />
 
-      <section className="mb-12">
-        <DocsBody className="mb-8">
-          <h2 id="getting-started">Getting Started</h2>
-          <p className="text-lg mb-6">
-            Ready to contribute? Here's how to get your development environment set up:
-          </p>
-        </DocsBody>
-        <DocsBullets variant="check" spacing="default" className="mb-8">
-          <DocsBulletItem
-            title="Fork the Repository"
-            description="Create your own fork of the Kortix repository on GitHub"
-          />
-          <DocsBulletItem
-            title="Clone Locally"
-            description="Clone your fork and set up the upstream remote for easy syncing"
-          />
-          <DocsBulletItem
-            title="Install Dependencies"
-            description="Follow the self-hosting guide to set up your local development environment"
-          />
-          <DocsBulletItem
-            title="Create a Branch"
-            description="Create a feature branch for your changes: git checkout -b feature/amazing-feature"
-          />
-        </DocsBullets>
-      </section>
+
 
       <section className="mb-12">
         <DocsBody className="mb-8">
@@ -229,7 +204,7 @@ export default function ContributingPage() {
               { 
                 label: 'View Discussions', 
                 variant: 'default',
-                onClick: () => window.open('https://github.com/kortix-ai/suna/issues', '_blank')
+                onClick: () => window.open('https://github.com/s45-ai/s45/issues', '_blank')
               }
             ]}
           />
