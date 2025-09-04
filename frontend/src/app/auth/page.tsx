@@ -284,15 +284,15 @@ function LoginContent() {
               </Link>
             </div>
             <div className="w-full max-w-sm">
-              <div className="mb-4 flex items-center flex-col gap-3 sm:gap-4 justify-center">
+              {/* <div className="mb-4 flex items-center flex-col gap-3 sm:gap-4 justify-center">
                 <ReleaseBadge className='mb-2 sm:mb-4' text="Custom Agents, Playbooks, and more!" link="/changelog" />
                 <h1 className="text-xl sm:text-2xl font-semibold text-foreground text-center leading-tight">
                   {isSignUp ? 'Create your account' : 'Log into your account'}
                 </h1>
-              </div>
+              </div> */}
             <div className="space-y-3 mb-4">
               <GoogleSignIn returnUrl={returnUrl || undefined} />
-              <GitHubSignIn returnUrl={returnUrl || undefined} />
+              {/* <GitHubSignIn returnUrl={returnUrl || undefined} /> */}
             </div>
             <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">

@@ -21,7 +21,7 @@ export default function Home() {
             {/* <TestimonialSection /> */}
             {/* <FAQSection /> */}
             {/* <CTASection /> */}
-            <FooterSection />
+            {/* <FooterSection /> */}
           </div>
         </main>
       </BackgroundAALChecker>

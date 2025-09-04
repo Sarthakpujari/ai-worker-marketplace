@@ -111,7 +111,7 @@ export const siteConfig = {
     githubUrl: 'https://github.com/s45-ai/s45',
     title: 'S45 – Build, manage and train your AI Workforce.',
     description:
-      'S45 – open-source platform to build, manage and train your AI Workforce.',
+      'S45 – AI agent platform to build, manage and train your AI Workforce.',
     inputPlaceholder: 'Ask S45 to...',
   },
   cloudPricingItems: [

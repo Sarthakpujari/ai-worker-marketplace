@@ -356,9 +356,9 @@ export function HeroSection() {
             </div>
             
             {/* Examples section - right after chat input */}
-            <div className="w-full pt-2">
+            {/* <div className="w-full pt-2">
               <Examples onSelectPrompt={setInputValue} count={tablet ? 2 : 4} />
-            </div>
+            </div> */}
           </div>
 
         </div>
@@ -392,7 +392,7 @@ export function HeroSection() {
           {/* OAuth Sign In */}
           <div className="w-full">
             <GoogleSignIn returnUrl="/dashboard" />
-            <GitHubSignIn returnUrl="/dashboard" />
+            {/* <GitHubSignIn returnUrl="/dashboard" /> */}
           </div>
 
           {/* Divider */}

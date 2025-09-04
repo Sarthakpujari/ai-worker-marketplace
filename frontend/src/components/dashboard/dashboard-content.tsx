@@ -339,11 +339,11 @@ export function DashboardContent() {
       <div className="flex flex-col h-screen w-full overflow-hidden">
         <div className="flex-1 overflow-y-auto">
           <div className="min-h-full flex flex-col">
-            {(
+            {/* {(
               <div className="flex justify-center px-4 pt-4 md:pt-8">
                 <ReleaseBadge text="Custom Agents, Playbooks, and more!" link="/agents?tab=my-agents" />
               </div>
-            )}
+            )} */}
             <div className="flex-1 flex items-center justify-center px-4 py-8">
               <div className="w-full max-w-[650px] flex flex-col items-center justify-center space-y-4 md:space-y-6">
                 <div className="flex flex-col items-center text-center w-full">
@@ -369,9 +369,9 @@ export function DashboardContent() {
                     onConfigureAgent={(agentId) => router.push(`/agents/config/${agentId}`)}
                   />
                 </div>
-                <div className="w-full" data-tour="examples">
+                {/* <div className="w-full" data-tour="examples">
                   <Examples onSelectPrompt={setInputValue} count={isMobile ? 3 : 4} />
-                </div>
+                </div> */}
               </div>
             </div>
             {enabledEnvironment && (

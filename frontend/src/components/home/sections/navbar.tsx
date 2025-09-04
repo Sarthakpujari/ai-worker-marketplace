@@ -1,8 +1,6 @@
 'use client';
 
 import { useAuth } from '@/components/AuthProvider';
-import { NavMenu } from '@/components/home/nav-menu';
-import { ThemeToggle } from '@/components/home/theme-toggle';
 import { siteConfig } from '@/lib/home';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
