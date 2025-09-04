@@ -3,7 +3,7 @@ from typing import Optional, Dict, List, Any
 from fastapi import APIRouter, HTTPException, Depends
 from uuid import uuid4
 
-from utils.auth_utils import get_current_user_id_from_jwt
+from utils.auth_utils import verify_and_get_user_id_from_jwt
 from utils.logger import logger
 from templates.template_service import MCPRequirementValue, ConfigType, ProfileId, QualifiedName
 
@@ -312,22 +312,38 @@ class JsonImportService:
         agent_config: Dict[str, Any],
         system_prompt: str
     ) -> None:
-        
-        from ..handlers.versioning.version_service import VersionService
-        version_service = VersionService()
-        
-        await version_service.create_version(
-            agent_id=agent_id,
-            user_id=account_id,
-            system_prompt=system_prompt,
-            agentpress_tools=agent_config['tools']['agentpress'],
-            configured_mcps=agent_config['tools']['mcp'],
-            custom_mcps=agent_config['tools']['custom_mcp'],
-            change_description="Initial version from JSON import"
-        )
+        try:
+            logger.debug(f"Creating initial version for JSON imported agent {agent_id} with system_prompt: {system_prompt[:100]}...")
+            
+            from .versioning.version_service import VersionService
+            version_service = VersionService()
+            
+            version = await version_service.create_version(
+                agent_id=agent_id,
+                user_id=account_id,
+                system_prompt=system_prompt,
+                agentpress_tools=agent_config['tools']['agentpress'],
+                configured_mcps=agent_config['tools']['mcp'],
+                custom_mcps=agent_config['tools']['custom_mcp'],
+                change_description="Initial version from JSON import"
+            )
+            
+            logger.info(f"Successfully created initial version {version.version_id} for JSON imported agent {agent_id}")
+            
+            # Verify the agent was updated with current_version_id
+            client = await self._db.client
+            agent_check = await client.table('agents').select('current_version_id').eq('agent_id', agent_id).execute()
+            if agent_check.data and agent_check.data[0].get('current_version_id'):
+                logger.debug(f"Agent {agent_id} current_version_id updated to: {agent_check.data[0]['current_version_id']}")
+            else:
+                logger.error(f"Agent {agent_id} current_version_id was not updated after version creation!")
+                
+        except Exception as e:
+            logger.error(f"Failed to create initial version for JSON imported agent {agent_id}: {e}", exc_info=True)
+            raise  # Re-raise the exception to ensure import fails if version creation fails
 
 @router.get("/agents/{agent_id}/export")
-async def export_agent(agent_id: str, user_id: str = Depends(get_current_user_id_from_jwt)):
+async def export_agent(agent_id: str, user_id: str = Depends(verify_and_get_user_id_from_jwt)):
     """Export an agent configuration as JSON"""
     logger.debug(f"Exporting agent {agent_id} for user: {user_id}")
     
@@ -403,7 +419,7 @@ async def export_agent(agent_id: str, user_id: str = Depends(get_current_user_id
 @router.post("/agents/json/analyze", response_model=JsonAnalysisResponse)
 async def analyze_json_for_import(
     request: JsonAnalysisRequest,
-    user_id: str = Depends(get_current_user_id_from_jwt)
+    user_id: str = Depends(verify_and_get_user_id_from_jwt)
 ):
     """Analyze imported JSON to determine required credentials and configurations"""
     logger.debug(f"Analyzing JSON for import - user: {user_id}")
@@ -423,7 +439,7 @@ async def analyze_json_for_import(
 @router.post("/agents/json/import", response_model=JsonImportResponse)
 async def import_agent_from_json(
     request: JsonImportRequestModel,
-    user_id: str = Depends(get_current_user_id_from_jwt)
+    user_id: str = Depends(verify_and_get_user_id_from_jwt)
 ):
     logger.debug(f"Importing agent from JSON - user: {user_id}")
     

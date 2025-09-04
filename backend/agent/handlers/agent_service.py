@@ -247,6 +247,7 @@ class AgentService:
                         'version_number': row['version_number'],
                         'version_name': row['version_name'],
                         'system_prompt': config.get('system_prompt', ''),
+                        'model': config.get('model'),
                         'configured_mcps': tools.get('mcp', []),
                         'custom_mcps': tools.get('custom_mcp', []),
                         'agentpress_tools': tools.get('agentpress', {}),
@@ -254,6 +255,7 @@ class AgentService:
                         'created_at': row.get('created_at'),
                         'updated_at': row.get('updated_at') or row.get('created_at'),
                         'created_by': row.get('created_by'),
+                        'config': config  # Include the full config for compatibility
                     }
                     version_map[row['agent_id']] = version_dict
             except Exception as e:
@@ -367,7 +369,7 @@ class AgentService:
             creator_name = None
             if template_data.get('creator_id'):
                 try:
-                    creator_result = await self.db.table('accounts').select('name, slug').eq('id', template_data['creator_id']).single().execute()
+                    creator_result = await self.db.schema('basejump').from_('accounts').select('name, slug').eq('id', template_data['creator_id']).single().execute()
                     if creator_result.data:
                         creator_name = creator_result.data.get('name') or creator_result.data.get('slug')
                 except Exception as e:

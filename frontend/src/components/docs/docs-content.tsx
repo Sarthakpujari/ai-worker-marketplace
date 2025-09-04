@@ -55,11 +55,12 @@ export const DocsContent = () => {
               </div>
               
               <h1 className="text-3xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
-                Welcome to s45
+                Welcome to S45 AI Agent Platform
               </h1>
               
               <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-3xl">
-                s45 provides everything you need to create intelligent automation solutions. 
+                Build, deploy, and manage powerful AI agents that automate complex workflows. 
+                The S45 AI Agent Platform provides everything you need to create intelligent automation solutions.
               </p>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 mt-6">
                  <Button size="lg" className="w-full sm:w-auto backdrop-blur-sm">

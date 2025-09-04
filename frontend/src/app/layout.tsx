@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     'research',
     'data analysis',
   ],
-  authors: [{ name: 's45 Team', url: 'https://s45.so' }],
+  authors: [{ name: 'S45 Team', url: 'https://s45.ai' }],
   creator:
-    's45 Team',
+    'S45 Team',
   publisher:
-    's45 Team',
+    'S45 Team',
   category: 'Technology',
-  applicationName: 'Suna',
+  applicationName: 'S45',
   formatDetection: {
     telephone: false,
     email: false,
@@ -66,17 +66,17 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 's45 - Open Source Generalist AI Worker',
+    title: 'S45 - Generalist AI Worker',
     description:
-      's45 is a fully open source AI assistant that helps you accomplish real-world tasks with ease through natural conversation.',
+      'S45 is an AI assistant that helps you accomplish real-world tasks with ease through natural conversation.',
     url: siteConfig.url,
-    siteName: 's45',
+    siteName: 'S45',
     images: [
       {
         url: '/banner.png',
         width: 1200,
         height: 630,
-        alt: 's45 - Open Source Generalist AI Worker',
+        alt: 'S45 - Generalist AI Worker',
         type: 'image/png',
       },
     ],
@@ -85,9 +85,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 's45 - Open Source Generalist AI Worker',
+    title: 'S45 - Generalist AI Worker',
     description:
-      's45 is a fully open source AI assistant that helps you accomplish real-world tasks with ease through natural conversation.',
+      'S45 is an AI assistant that helps you accomplish real-world tasks with ease through natural conversation.',
     creator: '@s45ai',
     site: '@s45ai',
     images: [
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
         url: '/banner.png',
         width: 1200,
         height: 630,
-        alt: 's45 - Open Source Generalist AI Worker',
+        alt: 'S45 - Generalist AI Worker',
       },
     ],
   },

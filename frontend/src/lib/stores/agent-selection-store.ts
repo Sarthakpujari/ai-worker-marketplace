@@ -1,13 +1,11 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-interface Agent {
+export interface Agent {
   agent_id: string;
   name: string;
-  avatar?: string;
-  metadata?: {
-    is_suna_default?: boolean;
-  };
+  description?: string;
+  is_s45_default?: boolean;
 }
 
 interface AgentSelectionState {
@@ -56,7 +54,7 @@ export const useAgentSelectionStore = create<AgentSelectionState>()(
           if (current && agents.some(a => a.agent_id === current)) {
             selectedId = current;
           } else if (agents.length > 0) {
-            const defaultSunaAgent = agents.find(agent => agent.metadata?.is_suna_default);
+            const defaultSunaAgent = agents.find(agent => agent.is_s45_default);
             selectedId = defaultSunaAgent ? defaultSunaAgent.agent_id : agents[0].agent_id;
           }
         }
@@ -76,7 +74,7 @@ export const useAgentSelectionStore = create<AgentSelectionState>()(
         if (agents.length === 0 || currentSelectedAgentId) {
           return;
         }
-        const defaultSunaAgent = agents.find(agent => agent.metadata?.is_suna_default);
+        const defaultSunaAgent = agents.find(agent => agent.is_s45_default);
         const agentToSelect = defaultSunaAgent || agents[0];
         
         if (agentToSelect) {
@@ -104,7 +102,7 @@ export const useAgentSelectionStore = create<AgentSelectionState>()(
         const currentAgent = selectedAgentId 
           ? agents.find(agent => agent.agent_id === selectedAgentId)
           : null;
-        return currentAgent?.metadata?.is_suna_default || selectedAgentId === undefined;
+        return currentAgent?.is_s45_default || selectedAgentId === undefined;
       },
     }),
     {

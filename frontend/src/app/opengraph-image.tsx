@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 
 // Configuration exports
 export const runtime = 'edge';
-export const alt = 's45';
+export const alt = 'S45';
 export const size = {
   width: 1200,
   height: 630,
@@ -31,7 +31,7 @@ export default async function Image() {
           }}
         >
           <img
-            src={`${baseUrl}/meta.png`}
+            src={`${baseUrl}/banner.png`}
             alt={alt}
             style={{
               width: '100%',

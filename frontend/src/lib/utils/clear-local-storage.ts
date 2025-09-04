@@ -2,10 +2,12 @@ export const clearUserLocalStorage = () => {
   if (typeof window === 'undefined') return;
 
   try {
-    // Note: Preserve model preference on logout - user choice should persist
-    // localStorage.removeItem('suna-preferred-model-v3');
+    // Clear localStorage items
+    // localStorage.removeItem('s45-preferred-model-v3');
+    // localStorage.removeItem('s45-model-selection-v2');
+    // localStorage.removeItem('s45_upgrade_dialog_displayed');
     localStorage.removeItem('customModels');
-    localStorage.removeItem('suna-model-selection-v2');
+          localStorage.removeItem('s45-model-selection-v2');
     localStorage.removeItem('agent-selection-storage');
     localStorage.removeItem('auth-tracking-storage');
     localStorage.removeItem('pendingAgentPrompt');

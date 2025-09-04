@@ -2,17 +2,21 @@ import { backendApi } from '@/lib/api-client';
 import { Metadata } from 'next';
 
 export async function generateMetadata({ params }: { params: Promise<{ shareId: string }> }): Promise<Metadata> {
-  const { shareId } = await params;
+  const { shareId: templateId } = await params;
   
   try {
-    const response = await backendApi.get(`/templates/share/${shareId}`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8000'}/api/templates/public/${templateId}`);
     
-    const template = response.data;
+    if (!response.ok) {
+      throw new Error('Template not found');
+    }
     
-    const title = `${template.name} - AI Agent Template | s45`;
+    const template = await response.json();
+    
+          const title = `${template.name} - AI Agent Template | S45`;
     const description = template.description || 'Discover and install this AI agent template to enhance your workflow with powerful automation capabilities.';
     
-    const ogImage = `${process.env.NEXT_PUBLIC_URL}/api/og/template?shareId=${shareId}`;
+    const ogImage = `${process.env.NEXT_PUBLIC_URL}/api/og/template?shareId=${templateId}`;
     
     return {
       title,
@@ -21,7 +25,7 @@ export async function generateMetadata({ params }: { params: Promise<{ shareId: 
         title,
         description,
         type: 'website',
-        url: `${process.env.NEXT_PUBLIC_URL}/templates/${shareId}`,
+        url: `${process.env.NEXT_PUBLIC_URL}/templates/${templateId}`,
         images: [
           {
             url: ogImage,
@@ -40,19 +44,19 @@ export async function generateMetadata({ params }: { params: Promise<{ shareId: 
     };
   } catch (error) {
     return {
-      title: 'AI Agent Template | s45',
+      title: 'AI Agent Template | S45',
       description: 'Discover and install AI agent templates to enhance your workflow with powerful automation capabilities.',
       openGraph: {
-        title: 'AI Agent Template | s45',
+        title: 'AI Agent Template | S45',
         description: 'Discover and install AI agent templates to enhance your workflow with powerful automation capabilities.',
         type: 'website',
-        url: `${process.env.NEXT_PUBLIC_URL}/templates/${shareId}`,
+        url: `${process.env.NEXT_PUBLIC_URL}/templates/${templateId}`,
         images: [
           {
             url: `${process.env.NEXT_PUBLIC_URL}/share-page/og-fallback.png`,
             width: 1200,
-            height: 630,
-            alt: 's45 AI Agent Template',
+        height: 630,
+            alt: 'S45 AI Agent Template',
           }
         ],
       },

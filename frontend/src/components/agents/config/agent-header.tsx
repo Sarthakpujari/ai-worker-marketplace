@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
 import { AgentVersionSwitcher } from '../agent-version-switcher';
 import { UpcomingRunsDropdown } from '../upcoming-runs-dropdown';
+import { S45Logo } from '@/components/sidebar/s45-logo';
 
 interface AgentHeaderProps {
   agentId: string;
@@ -29,7 +30,7 @@ interface AgentHeaderProps {
   onExport?: () => void;
   isExporting?: boolean;
   agentMetadata?: {
-    is_suna_default?: boolean;
+    is_s45_default?: boolean;
     centrally_managed?: boolean;
     restrictions?: {
       name_editable?: boolean;
@@ -69,7 +70,7 @@ export function AgentHeader({
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(displayData.name);
   const inputRef = useRef<HTMLInputElement>(null);
-  const isSunaAgent = agentMetadata?.is_suna_default || false;
+  const isS45Agent = agentMetadata?.is_s45_default || false;
   const restrictions = agentMetadata?.restrictions || {};
   const isNameEditable = !isViewingOldVersion && (restrictions.name_editable !== false);
   
@@ -95,10 +96,10 @@ export function AgentHeader({
     }
 
     if (editName !== displayData.name) {
-      if (!isNameEditable && isSunaAgent) {
-        toast.error("Name cannot be edited", {
-          description: "Suna's name is managed centrally and cannot be changed.",
-        });
+              if (!isNameEditable && isS45Agent) {
+          toast.error("Name cannot be edited", {
+            description: "S45's name is managed centrally and cannot be changed.",
+          });
         setEditName(displayData.name);
         setIsEditing(false);
         return;
@@ -149,9 +150,9 @@ export function AgentHeader({
     <header className="bg-background sticky top-0 flex h-14 shrink-0 items-center gap-3 z-20 w-full px-8 mb-2">
       <div className="flex items-center gap-3 min-w-0">
         <div className="relative flex-shrink-0">
-          {isSunaAgent ? (
+          {isS45Agent ? (
             <div className="h-9 w-9 rounded-lg bg-muted border flex items-center justify-center">
-              <KortixLogo size={16} />
+              <S45Logo size={16} />
             </div>
           ) : (
             <button 
@@ -186,10 +187,10 @@ export function AgentHeader({
             <Skeleton className="h-5 w-32" />
           ) : (
             <div
-              className={cn(
-                "text-base font-medium text-muted-foreground hover:text-foreground cursor-pointer flex items-center truncate max-w-[300px]",
-                !isNameEditable && isSunaAgent && "cursor-not-allowed opacity-75"
-              )}
+                              className={cn(
+                  "text-base font-medium text-muted-foreground hover:text-foreground cursor-pointer flex items-center truncate max-w-[400px]",
+                  !isNameEditable && isS45Agent && "cursor-not-allowed opacity-75"
+                )}
               onClick={isNameEditable ? startEditing : undefined}
               title={isNameEditable ? `Click to rename agent: ${displayData.name}` : `Name cannot be edited: ${displayData.name}`}
             >
@@ -203,7 +204,7 @@ export function AgentHeader({
       </div>
       <div className="flex items-center gap-2">
         <div className="flex items-center gap-1">
-          {!isSunaAgent && currentFormData && (
+          {!isS45Agent && currentFormData && (
             <AgentVersionSwitcher
               agentId={agentId}
               currentVersionId={currentVersionId}

@@ -4,14 +4,14 @@ import { siteConfig } from '@/lib/site';
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
-  keywords: ['s45', 'AI', 'Agent', 'Open Source'],
+  keywords: ['S45', 'AI', 'Agent'],
   authors: [
     {
-      name: 's45 AI Corp',
+      name: 'S45 AI Corp',
       url: 'https://s45.ai',
     },
   ],
-  creator: 's45 AI Corp',
+  creator: 'S45 AI Corp',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -19,12 +19,21 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: '/banner.png',
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
     creator: '@s45ai',
+    images: ['/banner.png'],
   },
   robots: {
     index: true,

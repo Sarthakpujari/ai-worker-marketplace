@@ -329,7 +329,7 @@ export function HeroSection() {
               <span className="text-secondary">AI Workforce.</span>
             </h1>
             <p className="text-base md:text-lg text-center text-muted-foreground font-medium text-balance leading-relaxed tracking-tight max-w-2xl px-2">
-            Kortix – the simplest way to migrate from human to AI.
+            S45 AI Agent Platform – the simplest way to migrate from human to AI.
             </p>
           </div>
 
