@@ -134,7 +134,6 @@ export function Navbar() {
                 <Image
                   src={logoSrc}
                   alt="S45 Logo"
-                  alt="S45 Logo"
                   width={80}
                   height={14}
                   className="md:w-[70px] md:h-[18px]"
