@@ -1,4 +1,4 @@
-# Kortix Frontend
+# s45 Frontend
 
 ## Quick Setup
 

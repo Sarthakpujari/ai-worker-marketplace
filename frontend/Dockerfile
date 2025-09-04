@@ -1,6 +1,14 @@
 # syntax=docker.io/docker/dockerfile:1
 # ---- Base Stage ----
-FROM node:22-slim AS base
+FROM ubuntu:22.04 AS base
+
+# Install Node.js
+RUN apt-get update && apt-get install -y \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
+    && apt-get install -y nodejs \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Install dependencies only when needed
 FROM base AS deps

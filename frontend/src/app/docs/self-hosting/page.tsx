@@ -61,8 +61,8 @@ export default function QuickStartPage() {
             data={[{
               language: "bash",
               filename: "terminal",
-              code: `git clone https://github.com/kortix-ai/suna.git
-cd suna`
+              code: `git clone https://github.com/s45-ai/s45.git
+cd s45`
             }]}
             defaultValue="bash"
           >
@@ -215,7 +215,7 @@ cd suna`
       </DocsBody>
 
       <DocsBody className="mb-8">
-        <h2 id="step-5-start">Step 5: Start Kortix</h2>
+        <h2 id="step-5-start">Step 5: Start s45</h2>
         
         <h3 className="mb-4">If you chose Docker setup:</h3>
         <p className="mb-4">The wizard automatically starts everything for you! After setup completes:</p>
@@ -352,7 +352,7 @@ docker compose down`
           </p>
         </div>
 
-        <p className="mb-4">You should see the Kortix dashboard where you can start chatting with Suna or create your own agents.</p>
+        <p className="mb-4">You should see the s45 dashboard where you can start chatting with Suna or create your own agents.</p>
 
         <Alert className="mb-6">
           <CheckCircle2 className="h-4 w-4" />

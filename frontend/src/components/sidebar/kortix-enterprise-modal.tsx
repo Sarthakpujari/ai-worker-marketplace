@@ -6,7 +6,6 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { useMediaQuery } from '@/hooks/use-media-query';
-import Image from 'next/image';
 import Cal, { getCalApi } from '@calcom/embed-react';
 import { useTheme } from 'next-themes';
 import { Check, Calendar } from 'lucide-react';
@@ -17,7 +16,7 @@ interface EnterpriseModalProps {
   onOpenChange?: (open: boolean) => void;
 }
 
-export function KortixEnterpriseModal({ 
+export function S45EnterpriseModal({ 
   children,
   open: controlledOpen,
   onOpenChange: controlledOnOpenChange
@@ -63,13 +62,9 @@ export function KortixEnterpriseModal({
           <div className="p-6 lg:p-8 flex flex-col bg-white dark:bg-black relative h-full overflow-y-auto border-r border-gray-200 dark:border-gray-800">
             <div className="relative z-10 flex flex-col h-full">
               <div className="mb-6 flex-shrink-0">
-                <Image
-                  src={isDarkMode ? '/kortix-logo-white.svg' : '/kortix-logo.svg'}
-                  alt="Kortix Logo"
-                  width={80}
-                  height={28}
-                  className="h-7 w-auto"
-                />
+                <div className="text-2xl font-bold text-black dark:text-white">
+                  s45
+                </div>
               </div>
 
               <div className="mb-6 flex-shrink-0">
@@ -119,7 +114,7 @@ export function KortixEnterpriseModal({
             <div className="h-full overflow-auto">
               <Cal
                 namespace="enterprise-demo"
-                calLink="team/kortix/enterprise-demo"
+                calLink="team/s45/enterprise-demo"
                 style={{ width: '100%', height: '100%' }}
                 config={{
                   layout: 'month_view',
@@ -135,4 +130,5 @@ export function KortixEnterpriseModal({
 }
 
 // Export with original name for backwards compatibility
-export const KortixProcessModal = KortixEnterpriseModal;
+export const KortixEnterpriseModal = S45EnterpriseModal;
+export const KortixProcessModal = S45EnterpriseModal;

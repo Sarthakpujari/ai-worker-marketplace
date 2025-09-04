@@ -38,7 +38,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import ColorThief from 'colorthief';
-import { KortixLogo } from '@/components/sidebar/kortix-logo';
+import { S45Logo } from '@/components/sidebar/kortix-logo';
 import { DynamicIcon } from 'lucide-react/dynamic';
 
 interface MarketplaceTemplate {
@@ -408,8 +408,8 @@ export default function TemplateSharePage() {
               <div className="flex items-center">
                 <Link href="/" className="flex items-center">
                   <img 
-                    src={resolvedTheme === 'dark' ? '/kortix-logo-white.svg' : '/kortix-logo.svg'} 
-                    alt="Kortix" 
+                    src={resolvedTheme === 'dark' ? '/s45-logo-white.svg' : '/s45-logo.svg'} 
+                    alt="s45" 
                     className="h-6 opacity-70"
                   />
                 </Link>
@@ -497,7 +497,7 @@ export default function TemplateSharePage() {
               <div className="space-y-4">
                 <div>
                   <h1 className="text-3xl font-bold tracking-tight">{template.name}</h1>
-                  {template.is_kortix_team && (
+                                     {template.is_kortix_team && (
                     <Badge variant="secondary" className="mt-2 bg-primary/10 text-primary">
                       <Sparkles className="w-3 h-3 mr-1" />
                       Official Template

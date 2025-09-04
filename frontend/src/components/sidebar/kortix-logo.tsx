@@ -1,13 +1,12 @@
 'use client';
 
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
-interface KortixLogoProps {
+interface S45LogoProps {
   size?: number;
 }
-export function KortixLogo({ size = 24 }: KortixLogoProps) {
+export function S45Logo({ size = 24 }: S45LogoProps) {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -21,13 +20,14 @@ export function KortixLogo({ size = 24 }: KortixLogoProps) {
   );
 
   return (
-    <Image
-        src="/kortix-symbol.svg"
-        alt="Kortix"
-        width={size}
-        height={size}
-        className={`${shouldInvert ? 'invert' : ''} flex-shrink-0`}
-        style={{ width: size, height: size, minWidth: size, minHeight: size }}
-      />
+    <div
+      className={`${shouldInvert ? 'text-white' : 'text-black'} flex-shrink-0 font-bold text-xl tracking-tight`}
+      style={{ fontSize: size * 0.8, minWidth: size, minHeight: size }}
+    >
+      s45
+    </div>
   );
 }
+
+// Export with original name for backwards compatibility
+export const KortixLogo = S45Logo;
