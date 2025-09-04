@@ -390,10 +390,10 @@ export function HeroSection() {
 
 
           {/* OAuth Sign In */}
-          <div className="w-full">
+          {/* <div className="w-full">
             <GoogleSignIn returnUrl="/dashboard" />
-            {/* <GitHubSignIn returnUrl="/dashboard" /> */}
-          </div>
+            <GitHubSignIn returnUrl="/dashboard" />
+          </div> */}
 
           {/* Divider */}
           <div className="relative my-6">

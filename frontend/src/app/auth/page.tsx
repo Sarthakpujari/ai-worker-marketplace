@@ -290,10 +290,10 @@ function LoginContent() {
                   {isSignUp ? 'Create your account' : 'Log into your account'}
                 </h1>
               </div> */}
-            <div className="space-y-3 mb-4">
+            {/* <div className="space-y-3 mb-4">
               <GoogleSignIn returnUrl={returnUrl || undefined} />
-              {/* <GitHubSignIn returnUrl={returnUrl || undefined} /> */}
-            </div>
+              <GitHubSignIn returnUrl={returnUrl || undefined} />
+            </div> */}
             <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-border"></div>
