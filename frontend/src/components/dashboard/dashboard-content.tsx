@@ -109,6 +109,8 @@ export function DashboardContent() {
     sort_order: 'asc'
   });
 
+  // console.log(`Understanding the working, selectedAgentId: ${selectedAgentId}, agentsResponse:`, agentsResponse);
+
   const agents = agentsResponse?.agents || [];
   const selectedAgent = selectedAgentId
     ? agents.find(agent => agent.agent_id === selectedAgentId)

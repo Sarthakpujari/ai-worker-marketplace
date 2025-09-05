@@ -294,7 +294,7 @@ function LoginContent() {
               <GoogleSignIn returnUrl={returnUrl || undefined} />
               <GitHubSignIn returnUrl={returnUrl || undefined} />
             </div> */}
-            <div className="relative my-4">
+            {/* <div className="relative my-4">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-border"></div>
               </div>
@@ -303,7 +303,7 @@ function LoginContent() {
                   or email
                 </span>
               </div>
-            </div>
+            </div> */}
             <form className="space-y-3">
               <Input
                 id="email"

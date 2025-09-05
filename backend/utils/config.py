@@ -278,7 +278,7 @@ class Configuration:
     SUPABASE_URL: str
     SUPABASE_ANON_KEY: str
     SUPABASE_SERVICE_ROLE_KEY: str
-    SUPABASE_JWT_SECRET: str
+    SUPABASE_JWT_SECRET: Optional[str] = None
     
     # Redis configuration
     REDIS_HOST: str
@@ -444,6 +444,10 @@ class Configuration:
         """Load configuration values from environment variables."""
         for key, expected_type in get_type_hints(self.__class__).items():
             env_val = os.getenv(key)
+            
+            # Initialize attribute with None if it doesn't exist and no env var is set
+            if not hasattr(self, key) and env_val is None:
+                setattr(self, key, None)
             
             if env_val is not None:
                 # Convert environment variable to the expected type

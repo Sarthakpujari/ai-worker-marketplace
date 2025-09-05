@@ -35,7 +35,7 @@ const data = {
   user: {
     name: "Kortix User",
     email: "docs@kortix.ai",
-    avatar: "/favicon.png",
+    avatar: "/s45.jpeg",
   },
   teams: [
     {

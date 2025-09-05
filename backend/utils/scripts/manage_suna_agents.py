@@ -25,8 +25,9 @@ import json
 from pathlib import Path
 
 # Add the backend directory to the path so we can import modules
-backend_dir = Path(__file__).parent.parent
-sys.path.insert(0, str(backend_dir))
+import os
+backend_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, backend_dir)
 
 from utils.suna_default_agent_service import SunaDefaultAgentService
 from services.supabase import DBConnection
